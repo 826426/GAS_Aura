@@ -22,6 +22,10 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 
+	/** Combat Interface */
+	virtual int32 GetPlayerLevel() override;
+	/** end Combat Interface */
+
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	USpringArmComponent* CameraBoom;
@@ -29,5 +33,5 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FollowCamera;
 
-	void InitAbilityActorInfo() override;
+	virtual void InitAbilityActorInfo() override;
 };

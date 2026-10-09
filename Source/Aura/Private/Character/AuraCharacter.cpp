@@ -40,6 +40,7 @@ void AAuraCharacter::PossessedBy(AController* NewController)
 
 	//给服务器用的
 	InitAbilityActorInfo();
+	AddCharacterAbilities();
 }
 
 void AAuraCharacter::OnRep_PlayerState()
@@ -48,6 +49,15 @@ void AAuraCharacter::OnRep_PlayerState()
 
 	//给客户端的
 	InitAbilityActorInfo();
+
+}
+
+int32 AAuraCharacter::GetPlayerLevel()
+{
+	AAuraPlayerState* AuraPlayerState = GetPlayerState<AAuraPlayerState>();
+	check(AuraPlayerState);
+
+	return AuraPlayerState->GetPlayerLevel();
 }
 
 void AAuraCharacter::InitAbilityActorInfo()
@@ -66,5 +76,5 @@ void AAuraCharacter::InitAbilityActorInfo()
 		}
 	}
 
-	InitializePrimaryAttributes();
+	InitializeDefaultAttributes();
 }
