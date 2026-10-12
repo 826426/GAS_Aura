@@ -48,7 +48,10 @@ protected:
 	void OnEndOverlap(AActor* TargetActor);
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Appied Effects")
-	bool bDestoryOnEffectRemoval = false;
+	bool bDestoryOnEffectApplication = false;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Appied Effects")
+	bool bApplyEffectsToEnemies = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Appied Effects")
 	TSubclassOf<UGameplayEffect> InstantGameplayEffectClass;
